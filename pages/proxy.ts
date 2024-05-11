@@ -8,9 +8,11 @@ const proxyMiddleware: RequestHandler = createProxyMiddleware({
     pathRewrite: {
         '^/api/proxy': '/',
     },
-    onProxyReq: (proxyReq, req, res) => {
-        proxyReq.setHeader('Authorization', `Bearer ${process.env.NEXT_API_KEY}`);
-    },
+    on: {
+        proxyReq:(proxyReq, req, res) => {
+            proxyReq.setHeader('Authorization', `Bearer ${process.env.NEXT_API_KEY}`);
+        }
+    }
 
 });
 
