@@ -3,10 +3,10 @@ import { createProxyMiddleware, RequestHandler } from 'http-proxy-middleware';
 import {URL} from "@/consts";
 
 const proxyMiddleware: RequestHandler = createProxyMiddleware({
-    target: URL,
+    target: `${URL}/genre/movie/list?language=en`,
     changeOrigin: true,
     pathRewrite: {
-        '^/api/proxy': '/',
+        '^/api/proxy/genre': '/',
     },
     on: {
         proxyReq:(proxyReq, req, res) => {
