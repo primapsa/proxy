@@ -1,14 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  async rewrites() {
-    return [
-      {
-        source: '/prx/:path*',
-        destination: `${process.env.NEXT_URL}/:path*`,
-      },
-    ];
-  },
   async headers() {
     return [
       {
@@ -22,6 +14,19 @@ const nextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: '/prx/:path*',
+        destination: `${process.env.NEXT_URL}/:path*`,
+      },
+      {
+        source: '/img/:path*',
+        destination: `${process.env.NEXT_URL_IMG}/:path*`,
+      },
+    ];
+  },
+
 };
 
 export default nextConfig;
