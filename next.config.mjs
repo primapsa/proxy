@@ -19,6 +19,9 @@ const nextConfig = {
       {
         source: '/prx/:path*',
         destination: `${process.env.NEXT_URL}/:path*`,
+        proxySetHeader: {
+          'Authorization' : `Bearer ${process.env.NEXT_API_KEY}`
+        }
       },
       {
         source: '/img/:path*',
